@@ -1,0 +1,13 @@
+.btn {
+  font-size: 1.7rem;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  transition: color 1s;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+}
