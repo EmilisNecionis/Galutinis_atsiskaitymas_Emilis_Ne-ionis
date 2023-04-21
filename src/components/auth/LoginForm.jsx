@@ -3,9 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import css from './form.module.css';
 
-
-function LoginForm() {
-
+function LoginForm({onLogin}) {
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -17,10 +15,9 @@ function LoginForm() {
     }),
     onSubmit: (values) => {
       console.log('form values ===', values);
-      sendLoginData(values);
+      onLogin(values)
     },
   });
-
 
   return (
     <>
@@ -47,7 +44,7 @@ function LoginForm() {
         {formik.errors.password && formik.touched.password && (
           <p className={css.errorMsg}>*{formik.errors.password}</p>
         )}
-        <Button type='submit'>Login</Button>
+        <Button type="submit">Login</Button>
       </form>
     </>
   );

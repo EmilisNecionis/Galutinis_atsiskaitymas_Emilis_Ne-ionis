@@ -26,7 +26,6 @@ function RegisterForm({onRegister}) {
           password,
         });
       }
-      sendLoginData(values);
     },
   });
 
@@ -60,13 +59,16 @@ function RegisterForm({onRegister}) {
         )}
         <input
           id="repeatPassword"
-          name='password'
+          name='repeatPassword'
           value={formik.values.repeatPassword}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           type='password'
           placeholder='Repeat password'
         />
+         {formik.errors.repeatPassword && formik.touched.repeatPassword && (
+          <p className={css.errorMsg}>*{formik.errors.repeatPassword}</p>
+        )}
         <Button type='submit'>Register</Button>
       </form>
     </>

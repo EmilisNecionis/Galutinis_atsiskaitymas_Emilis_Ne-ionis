@@ -8,7 +8,6 @@ import ShopsPage from './pages/ShopsPage'
 import AddShop from './pages/AddShop'
 import Header from './components/layout/Header'
 import Footer from './components/layout/footer'
-import {db} from './firebase/firebase'
 
 function App() {
 
