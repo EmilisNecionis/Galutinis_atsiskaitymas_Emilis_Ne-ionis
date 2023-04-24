@@ -1,0 +1,10 @@
+.shopsContainer {
+  width: 80rem;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 700px) {
+  .shopsContainer {
+    max-width: 50rem;
+  }
+}

@@ -2,9 +2,19 @@ import React from 'react'
 import RegisterForm from '../components/auth/RegisterForm'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase/firebase';
+import { useAuthCtx } from '../store/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+import Container from '../components/ui/container/Container'
+import Title from '../components/ui/pageTitle/Title';
+import Slogan from '../components/ui/slogan/slogan';
 
 function RegisterPage() {
+  const navigate = useNavigate();
+  const { ui, setIsLoading} = useAuthCtx()  
+  //
   function registerFireBase({email, password}) {
+    setIsLoading(true);
+    ui.showLoading();
     console.log('{email, password} ===', {email, password});
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -12,20 +22,26 @@ function RegisterPage() {
       const user = userCredential.user;
       console.log('user ===', user);
       // ...
+      console.log('Registration success');
+      setIsLoading(false);
+      ui.showSuccess()
+      navigate('/');
     })
     .catch((error) => {
       const errorCode = error.code;
-      const errorMessage = error.message;
-      console.warn('errorMessage ===', errorMessage);
+      const errorMessage = error.message
+      console.warn('Registration failed ===', errorMessage);
+      ui.showError('Registration failure');
+      setIsLoading(false);
       // ..
     });
   }
   return (
-    <div>
-      <h1>Register Page</h1>
-      <p>Welocme to RegisterPage</p>
+    <Container>
+      <Title>Registration</Title>
+      <Slogan/>
       <RegisterForm onRegister={registerFireBase}/>
-    </div>
+    </Container>
   )
 }
 

@@ -2,6 +2,8 @@ import Button from '../ui/button/Button';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import css from './form.module.css';
+import { useAuthCtx } from '../../store/AuthProvider';
+import FormContainer from '../ui/formContainer/FormContainer';
 
 function LoginForm({onLogin}) {
   const formik = useFormik({
@@ -21,6 +23,7 @@ function LoginForm({onLogin}) {
 
   return (
     <>
+    <FormContainer>
       <form onSubmit={formik.handleSubmit}>
         <input
           name='email'
@@ -28,7 +31,7 @@ function LoginForm({onLogin}) {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           type='text'
-          placeholder='Enter your email'
+          placeholder='Email'
         />
         {formik.errors.email && formik.touched.email && (
           <p className={css.errorMsg}>*{formik.errors.email}</p>
@@ -39,13 +42,14 @@ function LoginForm({onLogin}) {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           type='password'
-          placeholder='Enter your password'
+          placeholder='Password'
         />
         {formik.errors.password && formik.touched.password && (
           <p className={css.errorMsg}>*{formik.errors.password}</p>
         )}
         <Button type="submit">Login</Button>
       </form>
+     </FormContainer> 
     </>
   );
 }

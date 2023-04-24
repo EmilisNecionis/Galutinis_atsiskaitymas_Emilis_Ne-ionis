@@ -1,11 +1,14 @@
 import React from 'react'
+import Container from '../components/ui/container/Container'
+import Title from '../components/ui/pageTitle/Title'
+import Slogan from '../components/ui/slogan/slogan'
 
 function HomePage() {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Welocme to HomePage</p>
-    </div>
+    <Container>
+      <Title>Home</Title>
+      <Slogan/>
+    </Container>
   )
 }
 

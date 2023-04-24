@@ -1,13 +1,18 @@
 .btn {
   font-size: 1.7rem;
-  padding: 0.5em 1em;
+  padding: 0.6em 1.1em;
   cursor: pointer;
   background-color: black;
   color: white;
-  transition: color 1s;
+  transition: background-color 0.5s;
+  margin: 5rem 12.5rem;
+  border: none;
+  border-radius: 0;
+  text-align: center;
+  width: 10rem;
 }
 
 .btn:hover {
-  background-color: white;
-  color: black;
+  background-color: green;
+  color: white;
 }

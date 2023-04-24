@@ -1,4 +1,4 @@
-/* Headeris */
+/* Header */
 
 .mainHeader {
   background-color: black;
@@ -40,9 +40,9 @@
   justify-content: space-between;
 }
 
-/* /Headeris */
+/* /Header */
 
-/* Footeris */
+/* Footer */
 
 .mainFooter {
   text-align: center;
@@ -50,4 +50,10 @@
   color: white;
   background-color: black;
 }
-/* /Footeris */
+/* /Footer*/
+
+@media screen and (max-width: 600px) {
+  .navLink {
+    display: block;
+  }
+}
