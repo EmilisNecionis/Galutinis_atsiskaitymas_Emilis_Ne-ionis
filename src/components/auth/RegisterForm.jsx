@@ -27,6 +27,7 @@ function RegisterForm({onRegister}) {
           email: values.email,
           password,
         });
+        ui.showLoading()
       } else {
         ui.showError('Passwords do not match')
       }

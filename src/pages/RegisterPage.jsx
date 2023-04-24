@@ -24,7 +24,7 @@ function RegisterPage() {
       // ...
       console.log('Registration success');
       setIsLoading(false);
-      ui.showSuccess()
+      ui.showSuccess('Registration success')
       navigate('/');
     })
     .catch((error) => {

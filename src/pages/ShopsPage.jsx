@@ -8,13 +8,14 @@ import Title from '../components/ui/pageTitle/Title';
 import Slogan from '../components/ui/slogan/slogan';
 import ShopsContainer from '../components/ui/shopsContainer/ShopsConainer';
 
+
 function ShopsPage() {
   const [shopsArr, setShopsArr] = useState([]);
-
+ 
   useEffect(() => {
     async function getShops() {
-      
-      const querySnapshot = await getDocs(collection(db, 'shops'));
+      try {
+        const querySnapshot = await getDocs(collection(db, 'shops'));
       const tempShops = []
       querySnapshot.forEach((doc) => {
         console.log(`${doc.id} => ${doc.data()}`);
@@ -24,6 +25,9 @@ function ShopsPage() {
         })
       });
       setShopsArr(tempShops);
+      } catch (error) {
+        console.warn('getPosts', error)
+      }
     }
     getShops();
   }, []);

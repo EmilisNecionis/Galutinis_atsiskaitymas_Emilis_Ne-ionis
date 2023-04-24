@@ -7,19 +7,16 @@ import RegisterPage from './pages/RegisterPage'
 import ShopsPage from './pages/ShopsPage'
 import AddShopPage from './pages/AddShopPage'
 import Header from './components/layout/Header'
-import Footer from './components/layout/footer'
+import Footer from './components/layout/Footer'
 import Feedback from './components/ui/feedback/Feedback'
-import { useAuthCtx } from './store/AuthProvider';
-import Container from './components/ui/container/Container'
+import { useAuthCtx } from './store/AuthProvider'
 
 function App() {
   const { isLoggedIn } = useAuthCtx();
   return (
     <div className='body'>
       <Header/>
-      <Container>
         <Feedback/>
-      </Container>
       <Routes>
         <Route path={'/'} element={<HomePage/>}/>
         <Route path={'/login'} element={ isLoggedIn ? <Navigate to={'/'}/>:<LoginPage/>}/>
