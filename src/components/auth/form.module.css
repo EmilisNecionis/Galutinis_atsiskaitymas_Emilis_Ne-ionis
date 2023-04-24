@@ -1,0 +1,18 @@
+.errorMsg {
+  font-size: 1rem;
+  color: red;
+}
+
+.logoutBtn {
+  padding: 1.5rem;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 0;
+  transition: color 1s;
+}
+
+.logoutBtn:hover {
+  background-color: rgb(226, 224, 224);
+  color: black;
+}
